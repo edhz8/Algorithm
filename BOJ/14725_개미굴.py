@@ -11,7 +11,7 @@ class Trie():
         cNode = self.head
         for char in string:
             if char not in cNode.children: cNode.children[char] = Node(char)
-        cNode = cNode.children[char]
+            cNode = cNode.children[char]
     def printTrie(self,L,cNode):
         if L==0 : cNode = self.head
         for child in sorted(cNode.children.keys()):
