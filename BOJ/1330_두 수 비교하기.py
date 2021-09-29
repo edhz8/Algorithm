@@ -1,0 +1,1 @@
+i,j=map(int,input().split());i-=j;print(['==','>','<'][i//abs(i) if i else 0])
