@@ -1,0 +1,1 @@
+v=int(input());print(int((v%4==0 and v%100!=0)or v%400==0))

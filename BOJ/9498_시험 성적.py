@@ -1,0 +1,1 @@
+n=int(input());print('FDCBAA'[n//60*(n//10-5)])

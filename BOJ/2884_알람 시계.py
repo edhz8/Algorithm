@@ -1,0 +1,1 @@
+h,m=map(int,input().split());m+=h*60;print(*divmod(m-45+(0 if m>44 else 1440),60))
