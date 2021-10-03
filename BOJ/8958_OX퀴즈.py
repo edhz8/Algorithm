@@ -1,0 +1,1 @@
+for _ in range(int(input())): print(sum([sum(range(len(I)+1)) for I in input().split('X')]))

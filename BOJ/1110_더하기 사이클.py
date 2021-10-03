@@ -1,0 +1,1 @@
+n,m=int(input()),[*map(int,input().split())];print(sum(m)/n/max(m)*100)
