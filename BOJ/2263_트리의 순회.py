@@ -11,7 +11,7 @@ for _ in range(int(I())):
     a,b = map(int,I().split())
     a_ans=[a]
     while a != 1:
-        a=graph[a]
+        a=graph[a] 
         a_ans.append(a)
     while True:
         if b in a_ans : print(b);break
