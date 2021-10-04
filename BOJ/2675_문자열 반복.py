@@ -1,0 +1,1 @@
+for _ in range(int(input())):n,s=input().split();print(*[S*int(n) for S in s],sep='')

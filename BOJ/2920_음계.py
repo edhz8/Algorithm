@@ -1,0 +1,1 @@
+print({"2345678":"ascending","7654321":"descending"}.get(input()[2::2],"mixed"))
