@@ -1,0 +1,1 @@
+print(*sorted({*range(1,31)}-{int(input()) for _ in range(28)}),sep='\n')

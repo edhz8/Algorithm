@@ -1,3 +1,3 @@
-a='abc'
-a[2]='*'
-print(a)
+import random
+n=input().split()
+print(random.choice(n))

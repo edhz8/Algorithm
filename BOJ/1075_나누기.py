@@ -1,0 +1,1 @@
+n,f=int(input()[:-2])*100,int(input());print(str(f*(n//f+int(n%f!=0)))[-2:])
