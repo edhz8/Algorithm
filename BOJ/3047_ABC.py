@@ -1,0 +1,1 @@
+n=sorted(map(int,input().split()));print(*[n[ord(c)-65] for c in input()])
