@@ -1,0 +1,1 @@
+print(*['odd'if int(input())&1 else'even'for _ in range(int(input()))],sep='\n')
