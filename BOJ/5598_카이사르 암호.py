@@ -1,0 +1,1 @@
+print(*[chr(ord(c)+(-3 if c>'C' else 23)) for c in input()],sep='')
