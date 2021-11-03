@@ -2,31 +2,22 @@ import sys
 from collections import deque
 input = sys.stdin.readline
 for _ in range(int(input())):
-    N,K=map(int,sys.stdin.readline().split())#건물수 건물간의 건설순서규칙
-    building=[0]+list(map(int,sys.stdin.readline().split()))#각 건물들의 건설시간
-    tree=[[] for _ in range(N+1)]#건설순서규칙
-    inDegree=[0 for _ in range(N+1)]#진입차수
-    DP=[0 for _ in range(N+1)]#해당 건물까지 걸리는 시간
- 
-    for _ in range(K):#건설규칙 저장
+    N,K=map(int,input().split())
+    building=[0]+list(map(int,input().split()))
+    tree,inDegree,dp=[[] for _ in range(N+1)],[0 for _ in range(N+1)],[0 for _ in range(N+1)]
+    for _ in range(K):
         a,b=map(int,input().split())
         tree[a].append(b)
         inDegree[b]+=1
- 
-    q = deque()
-    for i in range(1,N+1):#진입차수 0인거 찾아서 큐에 넣기
+    que = deque()
+    for i in range(1,N+1):
         if inDegree[i]==0:
-            q.append(i)
-            DP[i]=building[i]
- 
-    while q:
-        a=q.popleft()
+            que.append(i)
+            dp[i]=building[i]
+    while que:
+        a=que.popleft()
         for i in tree[a]:
-            inDegree[i]-=1#진입차수 줄이고 비용갱신
-            DP[i]=max(DP[a]+building[i],DP[i])#DP를 이용해 건설비용 갱신
-            if inDegree[i]==0:
-                q.append(i)
- 
- 
-    answer=int(sys.stdin.readline())
-    print(DP[answer])
+            inDegree[i]-=1
+            dp[i]=max(dp[a]+building[i],dp[i])
+            if inDegree[i]==0: que.append(i)
+    print(dp[int(input())])
