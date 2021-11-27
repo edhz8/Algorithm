@@ -1,0 +1,1 @@
+a,b,p,c,d,q=map(int,input().split());print((d*p-b*q)//(a*d-b*c),(a*q-c*p)//(a*d-b*c))
