@@ -28,6 +28,8 @@ while True:
         for dx,dy in D:
             nx,ny = x+dx,y+dy
             if 0<=nx<n and 0<=ny<n:
-                if graph[nx][ny] == 0 : tedges.append((nx,ny,z))
-                elif graph[nx][ny] != z : print(length);exit()
+                if graph[nx][ny] == 0 : 
+                    tedges.append((nx,ny,z))
+                    graph[nx][ny] = 1
+                elif graph[nx][ny] > 1 and graph[nx][ny] != z : print(length);exit()
     edges,length = tedges,length+1
