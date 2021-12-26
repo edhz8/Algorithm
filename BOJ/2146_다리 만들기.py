@@ -22,7 +22,7 @@ for i in range(n):
     for j in range(n):
         if graph[i][j]==1 : bfs(i,j)
 while True:
-    tedges = deque()
+    tedges = deque()k
     while edges:
         x,y,z = edges.popleft()
         for dx,dy in D:
