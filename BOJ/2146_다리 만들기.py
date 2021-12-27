@@ -1,35 +1,52 @@
 from collections import deque
-n=int(input())
-graph = [list(map(int,input().split())) for _ in range(n)]
-edges,count,D,length= deque(),2,[(-1,0),(0,1),(1,0),(0,-1)],0
-def bfs(i,j):
-    global count
-    que = deque([(i,j)])
-    while que:
-        x,y = que.popleft()
-        for dx,dy in D:
-            nx,ny = x+dx,y+dy
-            if 0<=nx<n and 0<=ny<n:
-                if graph[nx][ny] == 1:
-                    graph[nx][ny] = count
-                    que.append((nx,ny))
-                elif graph[nx][ny] == 0 and (x,y,count) not in edges: 
-                    graph[x][y] = count
-                    edges.append((x,y,count))
-    count += 1
 
-for i in range(n):
-    for j in range(n):
-        if graph[i][j]==1 : bfs(i,j)
-while True:
-    tedges = deque()k
-    while edges:
-        x,y,z = edges.popleft()
-        for dx,dy in D:
-            nx,ny = x+dx,y+dy
-            if 0<=nx<n and 0<=ny<n:
-                if graph[nx][ny] == 0 : 
-                    tedges.append((nx,ny,z))
-                    graph[nx][ny] = 1
-                elif graph[nx][ny] > 1 and graph[nx][ny] != z : print(length);exit()
-    edges,length = tedges,length+1
+dr = [1,0,-1,0]
+dc = [0,1,0,-1]
+
+def find_island(i,j,k):
+    global ans
+    Q = deque()
+    Q.append((i,j))
+    Q2 = deque()
+    while Q:
+        r, c = Q.popleft()
+        for d in range(4):
+            nr, nc = r+dr[d], c+dc[d]
+            if nr>N-1 or nc>N-1 or nr<0 or nc<0 or arr[nr][nc]==k:continue
+            if not arr[nr][nc]:
+                Q2.append((nr,nc,1))
+                continue
+            arr[nr][nc] = k
+            Q.append((nr,nc))
+    def bridge(n):
+        nonlocal Q2
+        while Q2:
+            r, c, dis = Q2.popleft()
+            if dis>=ans:
+                return ans
+            for d in range(4):
+                nr, nc = r + dr[d], c + dc[d]
+                if nr > N - 1 or nc > N - 1 or nr < 0 or nc < 0 or arr[nr][nc] == n or visit[nr][nc]:continue
+                if not arr[nr][nc]:
+                    Q2.append((nr, nc, dis+1))
+                    visit[nr][nc] = 1
+                elif arr[nr][nc]:
+                    return dis
+        return ans
+
+    distance = bridge(k)
+    if ans>distance:
+        ans = distance
+
+N = int(input())
+arr = [list(map(int, input().split())) for _ in range(N)]
+visit = [[0] * N for _ in range(N)]
+n_island = 1
+ans = 100**2
+for i in range(N):
+    for j in range(N):
+        if arr[i][j] == 1:
+            n_island += 1
+            arr[i][j] = n_island
+            find_island(i,j,n_island)
+print(ans)
