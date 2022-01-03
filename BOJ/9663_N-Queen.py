@@ -1,1 +1,1 @@
-print(1234s)
+print(1234ss)
