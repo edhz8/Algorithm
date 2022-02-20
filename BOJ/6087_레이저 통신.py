@@ -1,6 +1,4 @@
-from collections import deque
 import sys
-sys.setrecursionlimit(10**7)
 input = sys.stdin.readline
 W,H = map(int,input().split())
 graph = [[0 for _ in range(W)] for _ in range(H)]
@@ -13,14 +11,14 @@ for i in range(H):
         graph[i][j] = IS[j]
         if not FOUND and IS[j] == 'C' : X,Y,graph[i][j],FOUND = i,j,0,True
 PRT = float('inf')
-q=deque([[X,Y,-1]])
+q=[[X,Y,-1]]
 while q:
-    x,y,d = q.popleft()
+    x,y,d = q.pop(0)
     for i in R[d]:
         [dx,dy] = D[i]
         nx,ny = x+dx,y+dy
-        nans = graph[x][y]+(0 if d==-1 or d%2==i%2 else 1)
-        if nx<0 or nx>=H or ny<0 or ny>=W or graph[nx][ny] == '*' or (graph[nx][ny] not in ['.','S','C'] and graph[nx][ny] < nans) or nans>PRT : continue
+        nans = graph[x][y]+(0 if d==-1 or i==d else 1)
+        if nx<0 or nx>=H or ny<0 or ny>=W or graph[nx][ny] == '*' or (isinstance(graph[nx][ny],int) and graph[nx][ny] < nans) or nans>PRT : continue
         if graph[nx][ny] == 'C' : 
             PRT = min(PRT,nans)
             continue
