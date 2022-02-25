@@ -1,0 +1,1 @@
+n=int(input());print(sum([p*(n-i) for i,p in enumerate(sorted(list(map(int,input().split()))))]))
