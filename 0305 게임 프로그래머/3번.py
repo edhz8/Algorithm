@@ -1,3 +1,4 @@
+# 시간이 모자라서 다 못풀음
 def getMask(g):
     ret = 0
     for i in range(4):
