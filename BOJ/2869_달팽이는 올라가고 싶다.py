@@ -1,0 +1,1 @@
+A,B,V=map(int,input().split());print(int(a:=(V-B)/(A-B))+(a-int(a)>0))
