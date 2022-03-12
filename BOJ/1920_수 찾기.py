@@ -1,0 +1,1 @@
+I = input;I();ns=set(map(int,I().split()));I();print(*[+(m in ns) for m in map(int,I().split())])
