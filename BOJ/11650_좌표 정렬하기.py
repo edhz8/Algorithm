@@ -1,0 +1,1 @@
+for i in sorted([list(map(int,j.split()))for j in[*open(0)][1:]]):print(*i)
