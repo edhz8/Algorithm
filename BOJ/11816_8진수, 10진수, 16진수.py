@@ -1,0 +1,1 @@
+x=input();print(x if len(x)==1 else int(x,16) if x[:2]=='0x' else int(x,8) if x[0]=='0' else x)
