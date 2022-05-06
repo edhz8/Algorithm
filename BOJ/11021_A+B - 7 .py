@@ -1,0 +1,1 @@
+for i in range(int(input())): print('Case #',i+1,': ',eval(input().replace(' ','+')),sep='')
