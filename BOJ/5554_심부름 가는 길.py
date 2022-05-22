@@ -1,0 +1,1 @@
+print(*divmod(sum(int(i) for i in open(0)),60))
