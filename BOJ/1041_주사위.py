@@ -1,0 +1,10 @@
+n = int(input())
+A,B,C,D,E,F=map(int,input().split())
+if n==1 : print(A+B+C+D+E+F-max(A,B,C,D,E,F));exit(0)
+one = min(A,B,C,D,E,F)
+two = min(A+B,A+C,A+D,A+E,B+C,B+D,B+F,C+E,C+F,D+E,D+F,E+F)
+three = min(A+B+C,A+B+D,A+D+E,A+C+E,B+C+F,B+D+F,D+E+F,C+E+F)
+one_count = (n-2)*(n-2)+4*(n-1)*(n-2)
+two_count = 4*(n-2)+4*(n-1)
+three_count = 4
+print(one*one_count+two*two_count+three*three_count)
