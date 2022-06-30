@@ -1,0 +1,1 @@
+a=input();print(69-ord(a[0])+0.3*('-0+'.find(a[1])-1) if a!='F' else 0.0)
