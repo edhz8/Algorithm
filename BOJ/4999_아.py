@@ -1,0 +1,1 @@
+print('gnoo'[input()>input()::2])
