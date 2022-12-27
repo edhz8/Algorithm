@@ -1,0 +1,1 @@
+def solution(n, s):return[-1] if n>s else [s//n+(i<s%n) for i in range(n)][::-1]
