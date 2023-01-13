@@ -1,21 +1,17 @@
-import sys
-input = sys.stdin.readline
+from collections import defaultdict,deque
 n=int(input())
-a,b=map(int,input().split())
-m=int(input())
-graph = [[0 for _ in range(n+1)]for _ in range(n+1)]
-for i in range(m):
-    x,y=map(int,input().split())
-    graph[x][y] = graph[y][x] = 1
-q=[[a,0]]
-visited = [0 for _ in range(n+1)]
+x,y=map(int,input().split())
+G=defaultdict(list)
+v=[0]*(n+1)
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    G[a].append(b)
+    G[b].append(a)
+q=deque([(x,0)])
 while q:
-    num,chon = q.pop()
-    if num == b : 
-        print(chon)
-        exit(0)
-    for i in range(1,n+1):
-        if graph[num][i] and not visited[i]:
-            q.append([i,chon+1])
-            visited[i]=1
+    f,n=q.popleft()
+    if f==y: print(n);exit(0)
+    for node in G[f]: 
+        if not v[node] :q.append((node,n+1));v[node]=1
 print(-1)
+# 10:14(14분 소요)
