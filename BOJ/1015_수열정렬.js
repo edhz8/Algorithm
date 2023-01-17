@@ -1,0 +1,11 @@
+const input = require("fs").readFileSync("../input.txt").toString().split("\n")
+let N = Number(input[0])
+let arr = input[1].split(" ").map(Number)
+const M = new Map()
+const SN = [...arr].sort((a, b) => a - b)
+SN.forEach((e, i) => {
+  if (M.has(e)) M.get(e).push(i)
+  else M.set(e, [i])
+})
+const answer = arr.map((e) => M.get(e).shift())
+console.log(answer.join(" "))
