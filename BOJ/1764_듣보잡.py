@@ -1,9 +1,11 @@
 import sys
 input = sys.stdin.readline
 N,M=map(int,input().split())
-p,d=[],{}
-for _ in range(N): d[input().strip()] = 0
-for _ in range(M):
-    i=input().strip()
-    if i in d : p.append(i)
-print(len(p),*sorted(p),sep='\n')
+ns = set([input() for _ in ' '*N])
+ms = []
+for _ in ' '*M :
+    i=input()
+    if i in ns: ms.append(i.strip())
+print(len(ms))
+print(*sorted(ms),sep='\n')
+# 10:37
