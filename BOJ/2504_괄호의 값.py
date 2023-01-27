@@ -1,18 +1,17 @@
-stack,brs,ans = [],['(','[',')',']'],0
-def EXIT() : print(0);exit(0)
+stack=[]
+pair={')':'(',']':'['}
+value={')':2,']':3}
 for c in input():
-    if c in brs[:2]: stack.append(c)
-    else :
-        me,tmp = brs.index(c),0
-        while True:
-            if not stack or stack[-1] == brs[(me-2)^1] : EXIT()
-            pop = stack.pop()
-            if isinstance(pop,int): tmp += pop
-            elif pop == brs[me-2] :  
-                stack.append(tmp*me if tmp!=0 else me)
-                break
-            else : EXIT()
-for n in stack:
-    if isinstance(n,int) : ans += n
-    else : EXIT()
-print(ans)
+    if c in pair:
+        if not stack:print(0);exit(0)
+        num=0
+        while (poped:=stack.pop())!=pair[c]: 
+            if (not stack) or isinstance(poped,str): print(0);exit(0)
+            else: num+=poped
+        stack.append(value[c]*num if num else value[c])
+    else : stack.append(c)
+answer = 0
+for c in stack:
+    if isinstance(c,int):answer+=c
+    else:print(0);exit(0)
+print(answer)
