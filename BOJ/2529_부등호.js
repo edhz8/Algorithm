@@ -21,7 +21,7 @@ const rec = (number) => {
     ) {
       number.push(i)
       rec(number)
-      number.pop(0)
+      number.pop()
     }
   }
 }
