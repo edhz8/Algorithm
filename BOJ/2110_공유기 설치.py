@@ -7,7 +7,6 @@ while Min<=Max:
     Mid = (Min+Max)//2
     cnt,cur=1,X[0]
     for i in range(1,N):
-        if C-cnt>(N-1)-i+1 : break
         if X[i]-cur >= Mid : cnt+=1;cur=X[i]
     if cnt>=C : 
         answer = Mid
