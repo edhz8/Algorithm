@@ -1,8 +1,1 @@
-S=input()
-def R(t):
-    if t==S:print(1);exit(0)
-    if len(t)==len(S):return
-    if t[0]=='B':R(t[:0:-1])
-    if t[-1]=='A':R(t[:-1])
-R(input())
-print(0)
+S=input();print(+(R:=lambda t:len(t)>=len(S)and(S==t or(t[0]=='B'and R(t[:0:-1]))or(t[-1]=='A'and R(t[:-1]))))(input()))
