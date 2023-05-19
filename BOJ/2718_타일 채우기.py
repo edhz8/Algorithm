@@ -1,0 +1,1 @@
+for n in[*open(0)][1:]:exec(f"a=b=1;c,d=5,11;{'d,a,b,c=d+5*c+b-a,b,c,d;'*int(n)}print(a)")
