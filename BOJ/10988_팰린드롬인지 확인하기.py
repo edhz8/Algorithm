@@ -1,1 +1,1 @@
-print(+((a:=input())==a[::-1]))
+a=input();print(+(a==a[::-1]))
