@@ -1,10 +1,6 @@
-import sys
-from bisect import bisect_left
-input = sys.stdin.readline
-ks,vs=[],[]
-N,M=map(int,input().split())
-for _ in range(N):
-    k,v=input().split()
-    ks.append(k)
-    vs.append(int(v))
-for _ in range(M): print(ks[bisect_left(vs,int(input()))])
+from bisect import*
+i=open(0).readline
+N,M=map(int,i().split())
+K,V=zip(*[i().split()for _ in' '*N])
+V=[*map(int,V)]
+for _ in' '*M:print(K[bisect_left(V,int(i()))])
