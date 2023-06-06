@@ -1,0 +1,1 @@
+for*_,x in sorted([-int(b),int(c),-int(d),a]for a,b,c,d in[o.split()for o in open(0)][1:]):print(x)
