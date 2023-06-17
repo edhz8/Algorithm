@@ -1,0 +1,1 @@
+for i in range(N:=int(input())):print('*'*(N-i))
