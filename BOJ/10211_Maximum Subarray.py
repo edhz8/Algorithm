@@ -1,0 +1,1 @@
+for i in[*open(0)][2::2]:s=0;print(max(s:=o+max(0,s)for o in map(int,i.split())))
