@@ -1,0 +1,1 @@
+for i in[*open(0)][1:]:print('yneos'[(6<len(i)<11)^1::2])
